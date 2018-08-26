@@ -38,8 +38,13 @@ public class CurrencyController {
     public ResponseEntity<Object> createCurrency(@RequestBody Currency body) {
         logger.info("Post request \'/currencies\', create currency method:");
         logger.info("Build new currency instance.");
-        Currency currency = new Currency.CurrencyBuilder().setTicker(body.getTicker()).setName(body.getName())
-                .setNumberOfCoins(body.getNumberOfCoins()).setMarketCap(body.getMarketCap()).build();
+        Currency currency = new Currency
+                .CurrencyBuilder()
+                .setTicker(body.getTicker())
+                .setName(body.getName())
+                .setNumberOfCoins(body.getNumberOfCoins())
+                .setMarketCap(body.getMarketCap())
+                .build();
 
         logger.info("Insert new currency instance to database.");
         currency = currencyRepository.save(currency);
@@ -115,8 +120,13 @@ public class CurrencyController {
         }
 
         logger.info("Build currency instance with ticker: " + ticker + ".");
-        Currency currency = new Currency.CurrencyBuilder().setTicker(ticker).setName(body.getName())
-                .setNumberOfCoins(body.getNumberOfCoins()).setMarketCap(body.getMarketCap()).build();
+        Currency currency = new Currency
+                .CurrencyBuilder()
+                .setTicker(ticker)
+                .setName(body.getName())
+                .setNumberOfCoins(body.getNumberOfCoins())
+                .setMarketCap(body.getMarketCap())
+                .build();
 
         logger.info("Update currency instance with ticker: " + ticker + " to database.");
         currencyRepository.save(currency);
